@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import TodoItem from "./TodoItem";
-const TodosList = ({todosProps, handleChange}) => {
+const TodosList = ({ todosProps, handleChange, delTodo }) => {
   return (
     <ul>
       {todosProps.map((todo) => (
@@ -8,8 +8,8 @@ const TodosList = ({todosProps, handleChange}) => {
         <TodoItem 
         key={todo.id} 
         itemProp={todo} 
-        handleChange={handleChange}/>
-        
+        handleChange={handleChange}
+        delTodo={delTodo}/>
       ))}
     </ul>
   );
