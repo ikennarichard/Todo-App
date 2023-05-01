@@ -23,7 +23,7 @@ const TodosLogic = () => {
 
   //delete todo
   const delTodo = (id) => {
-    console.log(id)
+    setTodos([...todos.filter((todo) => todo.id !== id )])
   }
 
   //toggle completed 
