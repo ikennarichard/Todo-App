@@ -1,10 +1,13 @@
 /*eslint-disable*/
-export default function TodoItem(props) {
+export default function TodoItem({ itemProp, handleChange }) {
   return (
     
     <li>
-      <input type="checkbox" />
-      {props.itemProp.title}
+      <input 
+      type="checkbox" 
+      checked={itemProp.completed}
+      onChange={() => handleChange(itemProp.id)}/>
+      {itemProp.title}
     </li>
   )
 }
