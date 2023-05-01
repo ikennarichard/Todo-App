@@ -21,6 +21,12 @@ const TodosLogic = () => {
     },
   ]);
 
+  //delete todo
+  const delTodo = (id) => {
+    console.log(id)
+  }
+
+  //toggle completed 
   const handleChange = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
       if (todo.id === id) {
@@ -29,15 +35,18 @@ const TodosLogic = () => {
           completed: !todo.completed
         }
       }
-      console.log(todo)
       return todo
     }))
+    console.log(todos)
   }
 
   return (
     <div>
     <InputTodo/>
-    <TodosList todosProps={todos} handleChange={handleChange}/>
+    <TodosList 
+    todosProps={todos} 
+    handleChange={handleChange}
+    delTodo={delTodo}/>
     </div>
   );
 };
