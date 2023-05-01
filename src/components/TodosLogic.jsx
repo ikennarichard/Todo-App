@@ -20,11 +20,11 @@ const TodosLogic = () => {
       completed: false,
     },
   ]);
-  
+
   return (
     <div>
     <InputTodo/>
-    <TodosList todosProps={todos}/>
+    <TodosList todosProps={todos} setTodos={setTodos}/>
     </div>
   );
 };
