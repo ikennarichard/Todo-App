@@ -32,7 +32,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math Magicians <a name="about-project"></a>
+# 📖 Todo-App <a name="about-project"></a>
 
 Todo-App is a simple webpage that helps users manage their daily task, you can list, add and remove todo items. Built with Reactjs
 
