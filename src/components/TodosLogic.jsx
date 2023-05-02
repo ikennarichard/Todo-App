@@ -1,25 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
 
 const TodosLogic = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: crypto.randomUUID(),
-      title: 'Setup development environment',
-      completed: true,
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'Deploy to live server',
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState(getInitialTodos());
+
+  function getInitialTodos() {
+    // getting stored items
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    return savedTodos || [];
+  }  
+
+  useEffect(() => {
+    //add todo items to local storage
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
+
 
     //add item to todos
     const addTodoItem = (title) => {
