@@ -5,21 +5,31 @@ import TodosList from "./TodosList";
 const TodosLogic = () => {
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: crypto.randomUUID(),
       title: 'Setup development environment',
       completed: true,
     },
     {
-      id: 2,
+      id: crypto.randomUUID(),
       title: 'Develop website and add content',
       completed: false,
     },
     {
-      id: 3,
+      id: crypto.randomUUID(),
       title: 'Deploy to live server',
       completed: false,
     },
   ]);
+
+    //add item to todos
+    const addTodoItem = (title) => {
+      const newTodo = {
+        id: crypto.randomUUID(),
+        title: title,
+        completed: false,
+      };
+      setTodos([...todos, newTodo]);
+    }
 
   //delete todo
   const delTodo = (id) => {
@@ -37,12 +47,11 @@ const TodosLogic = () => {
       }
       return todo
     }))
-    console.log(todos)
   }
 
   return (
     <div>
-    <InputTodo/>
+    <InputTodo addTodoItem={addTodoItem}/>
     <TodosList 
     todosProps={todos} 
     handleChange={handleChange}
